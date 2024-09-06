@@ -8,7 +8,10 @@
 
 ### 20240906
 ```ch01_03.py 파일 참고```
-
+- class method, instance method, static method
+- 학비 인상 퍼센트와 같이 클래스 변수를 수정하고자 할 때에는 
+  바로 접근 가능해서 수정하는 것은 매우 위험할 수 있음 
+- class method : @classmethod 데코레이터로 활용 
 
 ### 20240905
 ```ch01_02.py 파일 참고```
