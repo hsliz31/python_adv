@@ -55,3 +55,44 @@ s2 = Student('Liz', 167)
 print(s1 >= s2)
 print(s1 <= s2)
 print(s1 - s2)
+
+print()
+print()
+
+# one last class example 
+# vector # numpy 
+
+class Vector(object):
+    def __init__(self, *args):
+        '''create a vector, example : v = Vector(1, 2)'''
+        if len(args) == 0:
+            self._x, self._y = 0,0
+        else:
+            self._x, self._y = args 
+
+    def __repr__(self):
+        '''Returns the vector information'''
+        return 'Vector(%r, %r)' % (self._x, self._y)
+
+    def __add__(self, other):
+        '''Returns the vector addition of self and other'''
+        return Vector(self._x + other._x, self._y + other._y)
+
+    def __mul__(self, y):
+        '''Returns the vector multiplication of self and other'''
+        return Vector(self._x * y, self._y * y)
+
+
+# Vector instance 생성
+v1 = Vector(3, 5)
+v2 = Vector(15, 20)
+v3 = Vector()
+
+# 매직메소드 출력
+
+print(Vector.__init__.__doc__)
+print(Vector.__repr__.__doc__)
+print(v1, v2, v3)
+print(Vector.__add__.__doc__)
+print(v1 + v2)
+print(v1 * 4)

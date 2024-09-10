@@ -10,6 +10,21 @@
 e.g.) '__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', 
 '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__getstate__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'as_integer_ratio', 'bit_count', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes'
 
+만약 
+n = 100
+n + n + 200 == n.__add__(200)
+
+중요!
+모든 것은 객체로 표현됨
+그 객체에서 우리가 필요로 하는 메소드 (special method)를 overloading 해서 
+내가 원하는 흐름대로 코딩을 해 나갈 수 있게 지원해줌
+
+메소드를 부모로부터 부여받을 수도 있고 
+내가 대신 새롭게 만들 수 있다는 그런 특성을 가지고
+매직 메소드를 구현하면서 원하는 클래스 형태로 개발 할 수 있음
+
+잘 만들어진 패키지를 들여다보면 매직메소드 기반으로 구성되어 있음 
+
 
 ### 20240909
 ```ch02_01.py 파일 참고```
