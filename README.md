@@ -1,15 +1,29 @@
 # python_adv
 
 # Chapter 3. Sequence
+
+### 20240912
+```ch03_01.py 파일 참고```
+
+### 20240912
+```ch03_01.py 파일 참고```
+- Tuple 과 Packing & Unpacking 개념 
+- sort vs sorted
+  - sort : 정렬 후 객체 직접 변경 
+  - sorted : 정렬 후 '새로운' 객체 반환 (새로운 아이디 생성)
+
 ### 20240911
 ```ch03_01.py 파일 참고```
 
 - Container : 서로 다른 자료형 [list, tuple, collections.deque] 을 저장한다
-- Flat : 한 개의 자료형만 저장할 수 있음 [str, bytes, bytearray, array.array, memoryview
+- Flat : 한 개의 자료형만 저장할 수 있음 [str, bytes, bytearray, array.array, memoryview]
   - 속도 측면에서는 Flat 이 훨씬 더 빠름 (따라서 ML, DL 쪽은 array 로 되어있는 것을 확인 할 수 있음)
 
 - mutable / 가변 : list, bytearray, array.array, memoryview, deque
-- immutable / 불변 : tuple, str, bytes
+- immutable / 불변 : tuple, str, bytes 
+
+- 지능형 리스트 (comprehending lists)
+
 
 # Container : 서로 다른 자료형 [list, tuple, ]
 
