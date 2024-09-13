@@ -94,3 +94,26 @@ print('one' in user_dict3)   # 위에 클래스 에서 만든 def contains
 print(user_dict3.get('three'))
 
 # immutable dict
+
+from types import MappingProxyType
+
+d = {'key1': 'TEST1'}
+
+# Read only
+d_frozen = MappingProxyType(d)
+
+print(d, id(d))
+print(d_frozen, id(d_frozen))
+
+# d is d_frozen 은 id 값이 같은지 확인
+print(d is d_frozen)
+
+# d == d_frozen 은 value 가 같은지 확인
+print(d == d_frozen)
+
+# d_frozen['key1'] = 'TEST2' # TypeError: 'mappingproxy' object does not support item assignment
+
+d['key1'] = 'TEST2'
+d['key2'] = 'TEST3'
+
+print(d)
