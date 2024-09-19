@@ -117,3 +117,11 @@ d['key1'] = 'TEST2'
 d['key2'] = 'TEST3'
 
 print(d)
+
+
+# FrozenSet
+
+
+s1 = {'Apple', 'Orange', 'Kiwi', 'Apple', 'Orange'}
+s2 = set(['Apple', 'Orange', 'Kiwi', 'Apple', 'Orange'])
+s3 = {3}
