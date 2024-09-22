@@ -121,7 +121,37 @@ print(d)
 
 # FrozenSet
 
+print()
+print()
 
 s1 = {'Apple', 'Orange', 'Kiwi', 'Apple', 'Orange'}
 s2 = set(['Apple', 'Orange', 'Kiwi', 'Apple', 'Orange'])
 s3 = {3}
+s4 = set() # empty set 을 선언할 때 set() 으로 해야함 not {}
+s5 = frozenset({'Apple', 'Orange', 'Kiwi', 'Apple', 'Orange'}) # 추가, 수정 안됨 
+
+# 추가하기
+s1.add('Melon')
+print(s1, type(s1)) # 순서는 유지되지 않음. 해시가 더 중요함. 중복은 알아서 배제됨 --> 잘 못 쓰면 속도가 굉장히 느려질 수 있는 데이터타입
+
+# s5.add('Melon') # AttributeError: 'frozenset' object has no attribute 'add'
+# print(s5, type(s5)) # so it doesn't work
+
+print(s2, type(s2))
+print(s3, type(s3))
+print(s4, type(s4))
+print(s5, type(s5))
+
+# 선언 최적화 -> 단일 거가 더 효과적임
+a = {5} 
+b = set([10]) 
+ 
+from dis import dis # bytecode 로 어떤 일들이 일어나고 있는 지 확인할 때 사용
+print(dis('{10}')) # 3가지 스텝에서 끝 #   LOAD_CONST  BUILD_SET    RETURN_VALUE
+print(dis('set([10])')) # LOAD_NAME LOAD_CONST BUILD_LIST 
+
+# 지능형 집합 (Comprehending Set)
+from unicodedata import name
+
+print({name(chr(i), '') for i in range(0, 256)})
+print({chr(i) for i in range(0, 256)})

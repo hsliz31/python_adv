@@ -1,9 +1,34 @@
 # python_adv
 
+# Chapter 4. Higher-order Function / First-class functions
+### 20240922
+```ch04_01.py 파일 참고``
+- 일급 함수 설명
+  - 파이썬 함수 특징
+  - 함수 객체 속성 확인
+  - Map, Filter, Reduce
+  - 익명함수 (람다 함수, sort vs. sorted)
+  - 다양한 매개변수 사용
+
+
 # Chapter 3. Sequence
+### 20240919
+```ch03_02.py 파일 참고``
+- Set 구조(FrozenSet)
+  - 응용수학, 데이터 과학 분야에서 많이 사용 
+- 일반적으로 set 은 중복을 허용하지 않음 
+
 
 ### 20240912
 ```ch03_01.py 파일 참고```
+- 시퀀스형
+- 해시테이블 (hashtable)
+  - 적은 리소스로 많은 데이터를 효율적으로 관리 (색인/index)
+- Dict -> Key 중복허용 X, Set -> 중복 허용 X
+  - 중복허용 X : 같은 값을 갖고 있는 지 내부적으로 검사를 하고 있다는 뜻 
+  - 이때 hashtable 을 내부적으로 사용 
+  - hashtable 엔진에서 hash 값을 만들어서 숫자가 같으면 중복값이 있음, 아니면 다른 값이라고 간주
+- Dict 및 Set 심화 
 
 ### 20240912
 ```ch03_01.py 파일 참고```
