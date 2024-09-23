@@ -8,7 +8,7 @@
 # 함수 객체 예제
 
 def factorial(n):
-    print('run{}'.format(n))
+    # print('run{}'.format(n))
     '''Factorial Function -> n:int'''
     if n == 1: # or n < 2
         return 1
@@ -43,3 +43,12 @@ print(var_func)
 print(var_func(4))
 print(map(var_func, range(1,6)))
 print(list(map(var_func, range(1,6))))
+
+# 함수 인수 전달 및 함수로 결과 반환 => 고위 함수 (higher order function)
+print(map(var_func, filter(lambda x: x % 2, range(1,6))))
+print(list(map(var_func, filter(lambda x: x % 2, range(1,6)))))
+# basically same as 
+print(list(map(var_func, [1,3,5])))
+
+print(var_func(i) for i in range(1, 6) if i % 2)
+print([var_func(i) for i in range(1, 6) if i % 2])
