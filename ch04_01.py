@@ -52,3 +52,25 @@ print(list(map(var_func, [1,3,5])))
 
 print(var_func(i) for i in range(1, 6) if i % 2)
 print([var_func(i) for i in range(1, 6) if i % 2])
+
+print()
+print()
+
+# reduce() --> 많이 쓰지 않음 - deprecated
+
+from functools import reduce 
+from operator import add
+
+print(reduce(add, range(1,11)))
+print(sum(range(1,11)))
+
+# 지능형 리스트와 제네레이터 표현식이 소개된 후에는 이 함수들의 중요성이 떨어짐 
+# 주로 합계를 구하기 위해 사용되는데, sum 을 사용하는 것이 더 낫다
+
+# ------------
+
+# 익명함수 (lambda) --> 익명보다는 이름이 있는 함수가 더 좋음
+# 가급적 주석 사용
+# 가급적 함수 사용 
+# 일반 함수 형태로 리팩토링 권장 
+
