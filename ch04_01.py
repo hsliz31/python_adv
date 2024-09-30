@@ -120,6 +120,103 @@ print(callable(str), callable(list), callable(factorial), callable(3.14))
 
 print(callable(game))
 # returns False
+print(callable(game.pick))
+
+class LottoGame:
+    def __init__(self):
+        self._balls = [n for n in range(1, 46)]
+
+    def pick(self):
+        random.shuffle(self._balls)
+        return sorted([random.choice(self._balls) for n in range(6)])
+
+    # we've added the following
+    def __call__(self):
+        return self.pick()
+
+# 객체 생성
+
+game = LottoGame()
+
+print(callable(game))
+# returns True
+
+print()
+print()
+
+# 다양한 매개변수 입력 (*arg, **kwargs) 
+# packing, unpacking 
+
+def args_test(name, *contents, point=None, **attrs):
+    return '<args_test> -> ({}) ({}) ({}) ({})'.format(name, contents, point, attrs)
+
+print(args_test('test1'))
+# returns <args_test> -> (test1) (()) (None) ({}) 
+# packing 해서 넘어오기 때문에 두번째는 () 튜플로 넘어옴 
+# ** 두개가 붙은 것은 dictionary 형태로 넘어옴 
+
+print(args_test('test1', 'test2'))
+# returns <args_test> -> (test1) (('test2',)) (None) ({})
+
+print(args_test('test1', 'test2', 'test3', id='admin'))
+# <args_test> -> (test1) (('test2', 'test3')) (None) ({'id': 'admin'})
+
+print(args_test('test1', 'test2', 'test3', id='admin', point=7))
+# <args_test> -> (test1) (('test2', 'test3')) (7) ({'id': 'admin'})
+
+print(args_test('test1', 'test2', 'test3', id='admin', point=7, password='1234'))
+# <args_test> -> (test1) (('test2', 'test3')) (7) ({'id': 'admin', 'password': '1234'})
+
+# 함수 Signatures
+
+from inspect import signature
+
+# inspect 패키지에는 여러가지 유용한 부분이 많음
+
+sg = signature(args_test)
+print(sg)
+print(sg.parameters)
+
+for name, param in sg.parameters.items():
+    print(name, param.kind, param.default)
+
+# 자주 사용하지 않음
+
+# --------------------
+
+# partial 사용법 : 인수 고정 -> 주로 특정 인수 고정 후 콜백 함수에 사용
+# 하나 이상의 인수가 이미 할당된(채워진) 함수의 새 버전 반환
+
+from operator import mul
+from functools import partial 
+
+print(mul(10, 100))
+# 10 x 100 --> can only do a x b 
+
+# partial 활용해서 인수 고정
+five = partial(mul, 5)
+# basically saying a = 5
+
+# 고정 추가
+six = partial(five, 6)
+
+print(five(100))
+# 5 x 100
+
+print(five(100, 10))
+# TypeError: mul expected 2 arguments, got 3 --> we've fixed a = 5
+
+print(six(10))
+# TypeError: mul expected 2 arguments, got 3
+
+print(six)
+# functools.partial(<built-in function mul>, 5, 6)
+print(six())
+# 30
+
+print([five(i) for i in range(1,11)])
+# [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+# basically is 5x1, 5x2, 5x3 ... 5x10 
 
 
-
+print(list(map(five, range(1, 11))))

@@ -1,6 +1,10 @@
 # python_adv
 
 # Chapter 4. Higher-order Function / First-class functions
+### 202930
+```ch04_01.py 파일 참고``
+- Callable 한지
+
 ### 20240922
 ```ch04_01.py 파일 참고``
 - 일급 함수 설명
