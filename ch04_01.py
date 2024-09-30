@@ -61,16 +61,65 @@ print()
 from functools import reduce 
 from operator import add
 
-print(reduce(add, range(1,11)))
+print(reduce(add, range(1,11))) # 누적이 되고 개수만큼 반복이 됨
 print(sum(range(1,11)))
 
 # 지능형 리스트와 제네레이터 표현식이 소개된 후에는 이 함수들의 중요성이 떨어짐 
 # 주로 합계를 구하기 위해 사용되는데, sum 을 사용하는 것이 더 낫다
+# same thing as 1+2+3+4+5+6+7+8+9+10
 
 # ------------
 
 # 익명함수 (lambda) --> 익명보다는 이름이 있는 함수가 더 좋음
 # 가급적 주석 사용
 # 가급적 함수 사용 
-# 일반 함수 형태로 리팩토링 권장 
+# 일반 함수 형태로 리팩토링 권장 --> 이름을 붙혀라!
+
+# Reduce 함수를 lambda 함수로 대체 
+
+print( reduce(lambda x, t: x + t, range(1,11)))
+# breaking this down
+# start : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# 0 : (1 + 2), when doing this 'reduce' basically gets rid of what's used [3, 4, 5, 6, 7, 8, 9, 10]
+# 1 : ((1 + 2) + 3) / [4, 5, 6, 7, 8, 9, 10]
+# 2 : (((1 + 2) + 3) + 4) [5, 6, 7, 8, 9, 10]
+# .
+# .
+#  
+
+print()
+print()
+
+# Callable : 호출 연산자 -> 메소드 형태로 호출 가능한지 확인 
+# 매직 메소드 중 __call__ 과 같음 --> 호출이 가능함
+
+# funcs() 함수를 호출하듯이 호출 가능함 
+
+# 로또 추첨 클래스
+
+import random
+
+class LottoGame:
+    def __init__(self):
+        self._balls = [n for n in range(1, 46)]
+
+    def pick(self):
+        random.shuffle(self._balls)
+        return sorted([random.choice(self._balls) for n in range(6)])
+
+# 객체 생성
+
+game = LottoGame()
+
+# 게임 실행
+print(game.pick())
+
+# what is callable? - 호출이 가능한지 확인 
+print(callable(str), callable(list), callable(factorial), callable(3.14))
+# returns True True True False
+
+print(callable(game))
+# returns False
+
+
 
