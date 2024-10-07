@@ -5,3 +5,43 @@
     # 자바스크립트, 프론트엔드 에서도 클로저 개념은 매우 유용함
 
 
+b = 6
+
+def f3(a):
+    global b
+    print(a)
+    print(b)
+    b = 9
+
+f3(3)
+
+from dis import dis 
+dis(f3)
+
+# closure 는 함수 본체에서 정의하지 않고 참조하는 non global 변수를 포함한 확장 범위를 가진 함수 
+
+class Averager():
+    def __init__(self):
+        self.series = []
+    
+    def __call__(self, new_value):
+        self.series.append(new_value)
+        total = sum(self.series)
+        return total/len(self.series)
+
+avg = Averager()
+avg(10)
+
+def closure_avg1():
+    # free variable
+    series = []
+    def averager(v):
+        # series = [] # Check
+        series.append(v)
+        print('def >>{}/{}'.format(series, len(series)))
+        return sum(series) / len(series)
+    return Averager
+
+avg_closure1 = closure_avg1()
+
+print(avg_closure1(15))
