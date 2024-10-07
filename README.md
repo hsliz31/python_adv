@@ -1,9 +1,27 @@
 # python_adv
 
 # Chapter 4. Higher-order Function / First-class functions
-### 202930
+### 20241002
+```ch04_02.py 파일 참고```
+- Closure & Decorator
+- 반대로 Generator 를 이해해야 병행처리 (코루틴? asyncio)연관 지어 개념을 확장시킬 수 있음 
+
+1. 변수 스콥에 대해 배우고 (변수 범위)
+2. Closure
+3. Decorator
+
+수업내용 (데코레이터 설명)
+- 파이썬 변수 범위
+- 여러가지 클로저 구현
+- 클로저 속성 / 특징
+- 데코레이터 작성 예제
+- 데코레이터 작동 원리
+
+
+
+### 20240930
 ```ch04_01.py 파일 참고``
-- Callable 한지
+- Callable 한지 알아보기
 
 ### 20240922
 ```ch04_01.py 파일 참고``
