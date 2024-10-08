@@ -66,3 +66,82 @@ print(avg_closure2(15))
 
 
 # Decorator 실습
+
+# 함수의 실행시간 측정 
+# print('Started!', 함수 실행)
+# # 함수 실행
+# print('Ended!', )
+
+
+import time
+
+def performance_clock(func):
+    # 이 사이에 있는 것은 모두 스냅샷 
+    def performance_clocked(*args):
+        # 시작시간
+        st = time.perf_counter()
+        result = func(*args)
+        # 종료시간
+        et = time.perf_counter() - st 
+        # 함수명
+        name = func.__name__
+        # 매개변수
+        arg_str = ','.join(repr(arg) for arg in args)
+        # 출력
+        print('Result : [%0.5fs] %s(%s) -> %r' % (et, name, arg_str, result))
+        return result 
+    return performance_clocked #내부 함수 반환
+
+# def time_func(seconds):
+#     time.sleep(seconds)
+
+# def sum_func(*numbers):
+#     return sum(numbers)
+
+# def fact_func(n):
+#     return 1 if n < 2 else n*fact_func(n-1)
+    
+
+# non_deco1 = performance_clock(time_func)
+# non_deco2 = performance_clock(sum_func)
+# non_deco3 = performance_clock(fact_func)
+
+# print(non_deco1, non_deco1.__code__.co_freevars)
+# print(non_deco1, non_deco2.__code__.co_freevars)
+# print(non_deco1, non_deco3.__code__.co_freevars)
+
+# print('*' * 40, 'Called Non Deco -> time_func')
+# non_deco1(2)
+
+# print('*' * 40, 'Called Non Deco -> sum_func')
+# non_deco2(0, 100, 300, 500, 700)
+
+# print('*' * 40, 'Called Non Deco -> fact_func')
+# non_deco3(100)
+
+print()
+print()
+print()
+
+# Using Decorator
+
+@performance_clock
+def time_func(seconds):
+    time.sleep(seconds)
+
+@performance_clock
+def sum_func(*numbers):
+    return sum(numbers)
+
+@performance_clock
+def fact_func(n):
+    return 1 if n < 2 else n*fact_func(n-1)
+
+print('*' * 40, 'Called Deco -> time_func')
+time_func(2)
+
+print('*' * 40, 'Called Deco -> sum_func')
+sum_func(0, 100, 300, 500, 700)
+
+# print('*' * 40, 'Called Deco -> fact_func')
+# fact_func(100)
