@@ -15,8 +15,8 @@ def f3(a):
 
 f3(3)
 
-from dis import dis 
-dis(f3)
+# from dis import dis 
+# dis(f3)
 
 # closure 는 함수 본체에서 정의하지 않고 참조하는 non global 변수를 포함한 확장 범위를 가진 함수 
 
@@ -44,4 +44,22 @@ def closure_avg1():
 
 avg_closure1 = closure_avg1()
 
-print(avg_closure1(15))
+# print(avg_closure1(15))
+
+# 잘못된 클로저 사용 예
+
+def closure_avg2():
+    # Free variable
+    cnt = 0
+    total = 0
+    # Closure 영역
+    def averager(v):
+        nonlocal cnt, total 
+        cnt += 1
+        total += v
+        return total / cnt
+    return averager 
+
+avg_closure2 = closure_avg2()
+
+print(avg_closure2(15))
