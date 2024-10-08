@@ -1,6 +1,21 @@
 # python_adv
 
 # Chapter 4. Higher-order Function / First-class functions
+### 20241008
+```ch04_02.py 파일 참고```
+- Decorator
+  1. 중복 제거, 코드 간결
+  2. 클로저 보다 문법 간결 
+  3. 조합해서 사용 용이 (모듈화도 됨)
+  4. 재사용성 증가 
+
+  단점
+  1. 디버깅 어려움 
+  2. 에러의 모호함
+  3. 에러 발생 지점 추적 어려움 
+
+  
+
 ### 20241002
 ```ch04_02.py 파일 참고```
 - Closure & Decorator

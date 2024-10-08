@@ -186,6 +186,7 @@ for name, param in sg.parameters.items():
 
 # partial 사용법 : 인수 고정 -> 주로 특정 인수 고정 후 콜백 함수에 사용
 # 하나 이상의 인수가 이미 할당된(채워진) 함수의 새 버전 반환
+# 함수의 새 객체 타입은 이전 함수의 자체를 기술하고 있다 
 
 from operator import mul
 from functools import partial 

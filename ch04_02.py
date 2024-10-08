@@ -54,7 +54,7 @@ def closure_avg2():
     total = 0
     # Closure 영역
     def averager(v):
-        nonlocal cnt, total 
+        nonlocal cnt, total # 영역 밖에 있는 변수를 참고 할 수 있게 해줌
         cnt += 1
         total += v
         return total / cnt
@@ -63,3 +63,6 @@ def closure_avg2():
 avg_closure2 = closure_avg2()
 
 print(avg_closure2(15))
+
+
+# Decorator 실습
